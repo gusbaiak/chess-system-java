@@ -18,7 +18,7 @@ public class Program {
 		while (true) {
 			try {
 				UI.clearScreen();
-				UI.printTabuleiro(partidaXadrez.getPecas());
+				UI.printPartida(partidaXadrez);
 				System.out.println();
 				System.out.print("Origem: ");
 				PosicaoXadrez origem = UI.lerPosicaoXadrez(sc);
@@ -26,13 +26,13 @@ public class Program {
 				boolean[][] movimentosPossiveis = partidaXadrez.movimentosPossiveis(origem);
 				UI.clearScreen();
 				UI.printTabuleiro(partidaXadrez.getPecas(), movimentosPossiveis);
-				
+
 				System.out.println();
 				System.out.print("Destino: ");
 				PosicaoXadrez destino = UI.lerPosicaoXadrez(sc);
 
 				PecaXadrez pecaCapturada = partidaXadrez.performMovimentoXadrez(origem, destino);
-				
+
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
